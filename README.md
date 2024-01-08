@@ -1,5 +1,5 @@
 # r3f-text-landing
 
-### R3F Expereriments with RenderTexture, ReflectorMaterial & Postprocessing 
+### R3F Expereriments with RenderTexture, ReflectorMaterial, Postprocessing, Camera Controls & Hotspots
 
-<!-- ### [Demo](https://r3f-product-config-git-main-co851002.vercel.app/) -->
+<!-- ### [Demo](https://r3f-text-landing-git-main-co851002.vercel.app/) -->
