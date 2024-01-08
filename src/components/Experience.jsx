@@ -16,7 +16,7 @@ import { Winter } from "./Winter";
 import { currentPageAtom } from "./UI";
 
 const  bloomColor = new Color("#fff");
-bloomColor.multiplyScalar(1.6);
+bloomColor.multiplyScalar(1.3);
 
 export const Experience = () => {
   const controls = useRef();
@@ -45,11 +45,11 @@ export const Experience = () => {
   const fitCamera = async () => {
     if (currentPage === "store") {
       console.log(currentPage)
-      controls.current.smoothTime = 0.8;
+      controls.current.smoothTime = 0.3;
       controls.current.fitToBox(meshFitCameraStore.current, true);
     } else {
       console.log(currentPage)
-      controls.current.smoothTime = 1.6;
+      controls.current.smoothTime = 0.6;
       controls.current.fitToBox(meshFitCameraHome.current, true);
     }
   }
@@ -69,20 +69,20 @@ export const Experience = () => {
   return (
     <>
       <CameraControls ref={controls} />
-      <mesh ref={meshFitCameraHome} position-z={0.5} visible={false}>
+      <mesh ref={meshFitCameraHome} position={[0,0,0.5]} visible={false}>
         <boxGeometry args={[6,4,2]}/>
-        <meshBasicMaterial color={"orange"} transparent opacity={0.5}/>
+        <meshBasicMaterial color={"orange"} transparent opacity={0.1}/>
       </mesh>
       <Text
         font={"fonts/Raleway-Black.ttf"}
-        position={[-1.3, -1.5, 1]}
+        position={[-2, -1.2, 1]}
         lineHeight={1}
         textAlign="center"
-        rotation={[degToRad(0), degToRad(65), 0]}
+        rotation={[degToRad(0), degToRad(60), 0]}
         scale={1}
         anchorY={"bottom"}
       >
-        HINTERLAND {"\n"} HOLIDAYS
+        ARCTIC {"\n"} ESCAPE
         <meshBasicMaterial ref={textMaterial} color={bloomColor} toneMapped={false} >
           <RenderTexture attach={"map"}>
             <color attach={"background"} args={["#ccc"]}/>
@@ -96,7 +96,7 @@ export const Experience = () => {
 
       <group
         rotation={[degToRad(5), degToRad(10), 0]}
-        position={[2.8, 0.5, 0]}
+        position={[2, 0.5, 0]}
       >
         <Winter scale={1} html />
         <mesh ref={meshFitCameraStore} visible={false}>
@@ -105,7 +105,7 @@ export const Experience = () => {
         </mesh>
       </group>
 
-      <mesh position-y={-1.48} rotation-x={-Math.PI/2}>
+      <mesh position-y={-1.4} rotation-x={-Math.PI/2}>
         <planeGeometry args={[100, 100]} />
         <MeshReflectorMaterial
           blur={[100, 100]}
@@ -114,7 +114,7 @@ export const Experience = () => {
           mixStrength={10}
           roughness={1}
           depthScale={1}
-          opacity={0.5}
+          opacity={0.8}
           transparent
           minDepthThreshold={0.4}
           maxDepthThreshold={1.4}

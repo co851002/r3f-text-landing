@@ -12,7 +12,7 @@ const OverlayItem = ({
   className = "",
   title,
   description,
-  price,
+  button,
   bgColor,
   ...props
 }) => {
@@ -27,14 +27,14 @@ const OverlayItem = ({
       } transition-opacity duration-1000 ${className}`}
       {...props}
     >
-      <div className="bg-white backdrop-blur-lg text-lg p-2 w-full hover:opacity-100 opacity-70">
+      {/* <div className="bg-white backdrop-blur-lg text-lg p-2 w-full hover:opacity-100 opacity-70">
         <h2 className="font-bold">{title}</h2>
         <p>{description}</p>
-      </div>
+      </div> */}
       <button
         className={`${bgColor} hover:bg-black transition-colors duration-500 px-4 py-2 font-bold text-white w-full text-lg`}
       >
-        Explore{price}
+        {button}
       </button>
     </Html>
   );
@@ -486,13 +486,13 @@ export function Winter({ html, ...props }) {
           {html && (
              <OverlayItem
              rotation-y={degToRad(180)}
-             position-x={-0.5}
-             position-z={0.7}
-             position-y={1.1}
+             position-x={-1.2}
+             position-y={0.8}
+             position-z={-0.2}
              title={"Hotel"}
              description={"Go in Hotel"}
-             // price={"129.99"}
-             bgColor={"bg-yellow-500"}
+             button={"Explore Hotels"}
+             bgColor={"bg-pink-500"}
              className={"transition delay-1000"}
              />
           )}
@@ -508,13 +508,13 @@ export function Winter({ html, ...props }) {
           {html && (
             <OverlayItem
             rotation-y={degToRad(180)}
-            position-x={-0.9}
+            position-x={-0.6}
             position-z={-0.9}
-            position-y={-0.1}
+            position-y={0.1}
             title={"House"}
             description={"Go in house"}
-            // price={"129.99"}
-            bgColor={"bg-blue-500"}
+            button={"Explore Cabins"}
+            bgColor={"bg-blue-800"}
             className={"transition delay-1000"}
             />
           )}
@@ -531,12 +531,12 @@ export function Winter({ html, ...props }) {
             <OverlayItem
               rotation-y={degToRad(180)}
               position-x={-0.1}
-              position-z={-2.8}
               position-y={-0.2}
+              position-z={-1.5}
               title={"Train"}
               description={"Go in train"}
-              // price={"129.99"}
-              bgColor={"bg-green-500"}
+              button={"Explore Destinations"}
+              bgColor={"bg-green-800"}
               className={"transition delay-1000"}
             />
           )}
